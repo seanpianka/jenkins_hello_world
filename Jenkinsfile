@@ -3,8 +3,8 @@ pipeline {
 
     stages {
         stage('Build') {
+            foundFiles = sh(script: "locate cargo", returnStdout: true)
             steps {
-                foundFiles = sh(script: "locate cargo", returnStdout: true)
                 echo foundFiles
                 sh 'cargo build'
             }
