@@ -4,13 +4,17 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make'
+                container('jenkins-slave') {
+                    sh 'make'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'make tests'
-                sh './bin/tests'
+                container('jenkins-slave') {
+                    sh 'make tests'
+                    sh './bin/tests'
+                }
             }
         }
         stage('Deploy') {
