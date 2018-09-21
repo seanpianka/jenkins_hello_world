@@ -4,13 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh('find ~/ -type f -name cargo | tee url')
-                sh('cat url')
+                sh 'make'
             }
         }
         stage('Test') {
             steps {
-                sh 'cargo test'
+                sh 'make tests'
+                sh './bin/tests'
             }
         }
         stage('Deploy') {
