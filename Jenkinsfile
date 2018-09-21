@@ -4,8 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh(script: "find ~/ -type f -name 'cargo' | echo -", returnStdout: true)
-                sh 'cargo build'
+                bash '''#!/bin/bash
+                        echo $(find ~/ -type f -name 'cargo')
+                '''
             }
         }
         stage('Test') {
