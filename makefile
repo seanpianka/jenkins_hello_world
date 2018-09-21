@@ -29,8 +29,7 @@ HEADERS   := $(shell find $(INCDIR) -type f -name "*.$(HDREXT)")
 
 
 default: $(OBJECTS)
-	@echo $(OBJECTS);
-	@echo $(SOURCES);
+	@mkdir -p $(TARGETDIR);
 	$(CXX) $^ -o $(TARGETDIR)/$(TARGET) $(LIBS_DIRS) $(LIBS);
 
 
