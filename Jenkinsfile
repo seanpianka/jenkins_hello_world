@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh('find ~/ -type f -name cargo | tee url')
+                sh('cat url')
             }
         }
         stage('Test') {
