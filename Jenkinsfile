@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'make'
+                container('tee3/jenkinsci-jnlp-slave-boostcpp') {
+                    sh 'make'
+                }
             }
         }
         stage('Test') {
