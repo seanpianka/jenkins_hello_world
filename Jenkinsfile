@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker 'tee3/jenkinsci-jnlp-slave-boostcpp' }
+    agent any
 
     stages {
         stage('Build') {
