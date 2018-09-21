@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                sh 'find / -name "cargo"'
                 sh 'cargo build'
             }
         }
