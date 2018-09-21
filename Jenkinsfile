@@ -4,7 +4,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'find / -name "cargo"'
+                final foundFiles = findFiles(glob: 'dockerfiles/**/*')
+                echo foundFiles
                 sh 'cargo build'
             }
         }
