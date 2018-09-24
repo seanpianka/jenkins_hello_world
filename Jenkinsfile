@@ -6,13 +6,13 @@ pipeline {
             steps {
                 container('jenkins-slave') {
                     sh 'make'
+                    sh 'make tests'
                 }
             }
         }
         stage('Test') {
             steps {
                 container('jenkins-slave') {
-                    sh 'make tests'
                     sh './bin/tests'
                 }
             }
