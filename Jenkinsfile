@@ -24,7 +24,7 @@ pipeline {
                 container('jenkins-slave') {
                     echo 'Deploying...'
                     script {
-                        def server = Artifactory.server edge
+                        def server = Artifactory.server 'edge'
                         def uploadSpec = """{
                             "files": [
                                 {
