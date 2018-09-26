@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    def server
     
     stages {
         stage('Build') {
@@ -24,7 +23,7 @@ pipeline {
             steps {
                 container('jenkins-slave') {
                     echo 'Deploying...'
-                    server = Artifactory.server edge
+                    def server = Artifactory.server edge
                     def uploadSpec = """{
                         "files": [
                             {
