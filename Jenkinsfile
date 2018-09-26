@@ -1,11 +1,10 @@
 pipeline {
     agent any
     
-    def server = Artifactory.server 'edge'
-
-
     stages {
         stage('Build') {
+            def server = Artifactory.server 'edge'
+
             steps {
                 container('jenkins-slave') {
                     echo 'Building...'
