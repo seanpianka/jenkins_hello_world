@@ -23,16 +23,18 @@ pipeline {
             steps {
                 container('jenkins-slave') {
                     echo 'Deploying...'
-                    def server = Artifactory.server edge
-                    def uploadSpec = """{
-                        "files": [
-                            {
-                                "pattern": "build/*.o",
-                                "target": "example-repo-local/build/"
-                            }
-                        ]
-                    }"""
-                    server.upload(uploadSpec)
+                    script {
+                        def server = Artifactory.server edge
+                        def uploadSpec = """{
+                            "files": [
+                                {
+                                    "pattern": "build/*.o",
+                                    "target": "example-repo-local/build/"
+                                }
+                            ]
+                        }"""
+                        server.upload(uploadSpec)
+                    }
                 }
             }
         }
